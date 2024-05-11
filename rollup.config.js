@@ -2,6 +2,7 @@ const nodeResolve = require('@rollup/plugin-node-resolve').default;
 const replace = require('@rollup/plugin-replace');
 const terser = require('@rollup/plugin-terser').default;
 const packageJson = require('./package.json');
+const sourceMaps = require('rollup-plugin-sourcemaps');
 
 function getDevBuildMetadata() {
 	const now = new Date();
@@ -30,6 +31,7 @@ function getConfig(
 	const config = {
 		input: inputFile,
 		output: {
+			sourcemap: true,
 			format,
 			file: `./dist/lightweight-charts${isStandalone ? '.standalone' : ''}.${mode}.${extension}`,
 			banner: `
@@ -66,6 +68,7 @@ function getConfig(
 						},
 					},
 				}),
+			sourceMaps(),
 		],
 		external: id => !isStandalone && /^fancy-canvas(\/.+)?$/.test(id),
 	};
