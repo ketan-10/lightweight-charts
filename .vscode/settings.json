@@ -1,7 +1,5 @@
 {
     "files.exclude": {
-        "dist/**": true,
-        "lib/**": true,
         "tests/e2e/graphics/.gendata/**": true,
         "tests/e2e/coverage/.gendata/**": true,
         "website/.docusaurus/**": true,

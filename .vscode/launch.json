@@ -2,6 +2,12 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch debug.html",
+            "file": "${workspaceFolder}/debug.html"
+        },
+        {
             "type": "node-terminal",
             "request": "launch",
             "name": "Unittests",

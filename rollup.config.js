@@ -4,6 +4,7 @@ import { default as terser } from '@rollup/plugin-terser';
 import { fileURLToPath } from 'node:url';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import sourceMaps from 'rollup-plugin-sourcemaps';
 
 const packageJsonPath = resolve(fileURLToPath(import.meta.url), '../package.json');
 const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
@@ -31,6 +32,7 @@ function getConfig(inputFile, { format, isProd, isStandalone }) {
 	const config = {
 		input: inputFile,
 		output: {
+			sourcemap: true,
 			format,
 			file: `./dist/lightweight-charts${isStandalone ? '.standalone' : ''}.${mode}.${extension}`,
 			banner: `
@@ -64,6 +66,7 @@ function getConfig(inputFile, { format, isProd, isStandalone }) {
 					},
 				},
 			}),
+			sourceMaps(),
 		],
 		external: id => !isStandalone && /^fancy-canvas(\/.+)?$/.test(id),
 	};
