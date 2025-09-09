@@ -1,6 +1,6 @@
 import { ensureNotNull } from '../helpers/assertions';
 import { isFF, isIOS } from '../helpers/browsers';
-import { preventScrollByWheelClick } from '../helpers/events';
+import { MouseEventButton, preventScrollByWheelClick } from '../helpers/events';
 import { IDestroyable } from '../helpers/idestroyable';
 
 import { Coordinate } from '../model/coordinate';
@@ -10,7 +10,6 @@ export type HandlerMouseEventCallback = (event: MouseEventHandlerMouseEvent) => 
 export type HandlerTouchEventCallback = (event: MouseEventHandlerTouchEvent) => void;
 export type EmptyCallback = () => void;
 export type PinchEventCallback = (middlePoint: Position, scale: number) => void;
-
 export interface MouseEventHandlers {
 	pinchStartEvent?: EmptyCallback;
 	pinchEvent?: PinchEventCallback;
