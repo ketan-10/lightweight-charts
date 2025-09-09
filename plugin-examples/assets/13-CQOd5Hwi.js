@@ -1,0 +1,1 @@
+import{c as r}from"./index-DNsBFaw8.js";import{a as i}from"./sample-data-x_8-FZm1.js";import{C as a}from"./highlight-bar-crosshair-OBE3W2Hs.js";import{c as e}from"./candlestick-series-B8laVXSc.js";import"./positions-t2UKkghX.js";const o=window.chart=r("chart",{autoSize:!0}),t=o.addSeries(e);t.setData(i());const c=new a({color:"rgba(0, 50, 100, 0.2)"});t.attachPrimitive(c);
